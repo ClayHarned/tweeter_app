@@ -13,7 +13,7 @@ class TweetTests(TestCase):
         )
 
         self.tweet = Tweet.objects.create(
-            body='Nice tweet!',
+            body='New tweet',
             user=self.user,
         )
 
@@ -23,18 +23,18 @@ class TweetTests(TestCase):
 
     def test_tweet_content(self):
         self.assertEqual(f'{self.tweet.user}', 'testuser')
-        self.assertEqual(f'{self.tweet.body}', 'Nice tweet!')
+        self.assertEqual(f'{self.tweet.body}', 'New tweet')
 
     def test_tweet_list_view(self):
         response = self.client.get(reverse('home'))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'Nice tweet!')
+        self.assertContains(response, 'New tweet')
         self.assertTemplateUsed(response, 'home.html')
 
     def test_tweet_create_view(self):
         response = self.client.post(reverse('tweet_new'), {
-            'body': 'New tweet',
+            'body': 'Newer tweet',
             'user': self.user,
         })
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'New tweet')
+        self.assertContains(response, 'Newer tweet')
