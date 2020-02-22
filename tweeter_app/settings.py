@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4', #new
-    'bootstrap_datepicker_plus', #new 
+    'bootstrap_datepicker_plus', #new
     'users', # new
     'tweets', # new
 ]
@@ -78,6 +78,13 @@ BOOTSTRAP4 = {'include_jquery': True } #new
 
 LOGIN_REDIRECT_URL = 'home' #new
 LOGOUT_REDIRECT_URL = 'home' #new
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' #new
+EMAIL_HOST = 'smtp.sendgrid.net' #new
+EMAIL_HOST_USER = os.getenv('SENDGRID_USERNAME') #new
+EMAIL_HOST_PASSWORD = os.getenv('SENDGRID_PASSWORD') #new
+EMAIL_PORT = 587 #new
+EMAIL_USE_TLS = True #new
 
 WSGI_APPLICATION = 'tweeter_app.wsgi.application'
 
