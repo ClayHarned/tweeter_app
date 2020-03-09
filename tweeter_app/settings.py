@@ -55,9 +55,9 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
-REST_FRAAMEWORK = {
+REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticatedOrreadOnly',
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
@@ -100,7 +100,7 @@ BOOTSTRAP4 = {'include_jquery': True } #new
 LOGIN_REDIRECT_URL = 'home' #new
 LOGOUT_REDIRECT_URL = 'home' #new
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' #new
+EMAIL_BACKEND = EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #new
 EMAIL_HOST = 'smtp.sendgrid.net' #new
 EMAIL_HOST_USER = os.getenv('SENDGRID_USERNAME') #new
 EMAIL_HOST_PASSWORD = os.getenv('SENDGRID_PASSWORD') #new
