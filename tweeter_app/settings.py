@@ -57,7 +57,7 @@ SITE_ID = 1
 
 REST_FRAAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.Is AuthenticatedOrreadOnly',
+        'rest_framework.permissions.IsAuthenticatedOrreadOnly',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
